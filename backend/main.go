@@ -141,6 +141,22 @@ func main() {
 			r.GET("/List_data/:id", controller.GetList_data)
 			r.POST("/List_datas", controller.CreateList_data)
 
+			// ============================================================================================================
+			// ============================================================================================================
+			// ========================================= Payment ==========================================================
+			// ============================================================================================================
+			// ============================================================================================================
+
+			// Semester Routes
+			router.POST("/semesters", controller.CreateSemester)
+			router.GET("/semester/:id", controller.GetSemester)
+			router.GET("/semesters", controller.ListSemesters)
+
+			// Payment_Bill Routes
+			router.POST("/payment_bills", controller.CreatePayment_Bill)
+			router.GET("/payment_bills", controller.ListPayment_Bills)
+			router.GET("/payment_bill/:id", controller.GetPayment_Bill)
+
 		}
 	}
 

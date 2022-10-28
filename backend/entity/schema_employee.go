@@ -49,4 +49,6 @@ type Employee struct {
 
 	RoleID *uint
 	Role   Role `gorm:"references:id"`
+
+	Payment_Bill []Payment_Bill `gorm:"foreignKey:BookingID"`
 }

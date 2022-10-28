@@ -23,6 +23,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import FolderIcon  from '@mui/icons-material/Folder';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import ConstructionIcon from '@mui/icons-material/Construction';
+import ReceiptLongRoundedIcon from '@mui/icons-material/ReceiptLongRounded';
 
 import Home from "./components/Home";
 import Employees from "./components/Employees";
@@ -44,6 +45,9 @@ import BookingCreate from "./components/BookingCreate";
 
 import List_data from "./components/List_data";
 import List_dataCreate from "./components/List_dataCreate";
+
+import Payment_Bill from "./components/Payment_Bill";
+import Payment_Bill_Create from "./components/Payment_Bill_Create";
 
 
 const drawerWidth = 240;
@@ -108,6 +112,7 @@ const menu = [
   { name: "จองห้องพัก", icon: <PeopleIcon />, path: "/Booking" , position: "Student"},
   { name: "แจ้งซ่อม", icon: <ConstructionIcon />, path: "/Repair" ,position: "Student"},
   { name: "บันทึกข้อมูลการยืม", icon: <ConstructionIcon />, path: "/List_data/create"   ,position: "Student"},
+  { name: "ใบเสร็จชำระค่าใช้จ่าย", icon: <ReceiptLongRoundedIcon />, path: "/payment_bills" , position: "Admin"},
 ];
 
 function App() {
@@ -234,6 +239,8 @@ function App() {
                 <Route path="/Booking/create" element={<BookingCreate />} />
                 <Route path="/List_datas" element={<List_data />} />
                 <Route path="/List_data/create" element={<List_dataCreate />} />
+                <Route path="/payment_bills" element={<Payment_Bill />}/>
+                <Route path="/payment_bills/create" element={<Payment_Bill_Create />} />
               </Routes>
             </Container>
           </Box>

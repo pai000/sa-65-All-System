@@ -58,6 +58,11 @@ func SetupDatabase() {
 		&Equipment{},
 		&Borrow_card{},
 		&List_data{},
+
+		//================= Payment ====================
+		//==============================================
+		&Semester{},
+		&Payment_Bill{},
 	)
 
 	db = database
@@ -177,6 +182,18 @@ func SetupDatabase() {
 		Province:     roiet,
 	}
 	db.Model(&Employee{}).Create(&em4)
+
+	em5 := Employee{
+		Personal_ID: "8654128541027",
+		Email:       "jacklove@gmail.com",
+		Name:        "Jack love",
+		Password:    string(password6),
+
+		Gender:       gender1,
+		Job_Position: job_position2,
+		Province:     bangkok,
+	}
+	db.Model(&Employee{}).Create(&em5)
 
 	// ======================================================================================================================
 	// ======================================  Student  =====================================================================
@@ -407,15 +424,20 @@ func SetupDatabase() {
 		Set_of_furniture: set1,
 	})
 
-	db.Model(&Room{}).Create(&Room{
-		Room_type:        type2,
-		Room_price:       price1,
-		Set_of_furniture: set1,
-	})
-	db.Model(&Booking{}).Create(&Booking{
-		Room: r1,
-		Time: T1,
-	})
+	booking1 := Booking{
+		Check_in_date: time.Date(2020, time.May, 10, 00, 00, 00, 0, time.UTC),
+		Room:          room2,
+		Student:       std2,
+		Time:          T1,
+	}
+	db.Model(&Booking{}).Create(&booking1)
+
+	booking2 := Booking{
+		Check_in_date: time.Date(2020, time.May, 10, 00, 00, 00, 0, time.UTC),
+		Room:          room1,
+		Student:       std1,
+	}
+	db.Model(&Booking{}).Create(&booking2)
 
 	// ======================================================================================================================
 	// =========================================== Borrow ===================================================================
@@ -457,5 +479,30 @@ func SetupDatabase() {
 		Room_id:        new(uint),
 		Room:           Room{},
 	})
+
+	// ======================================================================================================================
+	// ===========================================  Payment  ================================================================
+	// ======================================================================================================================
+
+	// Semester Data ------------------------------------------------------
+	semester1 := Semester{
+		Semester: "1/2564",
+	}
+	db.Model(&Semester{}).Create(&semester1)
+
+	semester2 := Semester{
+		Semester: "2/2564",
+	}
+	db.Model(&Semester{}).Create(&semester2)
+
+	semester3 := Semester{
+		Semester: "3/2564",
+	}
+	db.Model(&Semester{}).Create(&semester3)
+
+	semester4 := Semester{
+		Semester: "1/2565",
+	}
+	db.Model(&Semester{}).Create(&semester4)
 
 }

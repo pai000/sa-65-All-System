@@ -7,6 +7,9 @@ import { RoomInterface } from "../interfaces/IRoom";
 import { RepairInterface } from "../interfaces/IRepair";
 import { BookingInterface } from "../interfaces/IBooking";
 import { List_dataInterface } from "../interfaces/IList_data";
+import { PaymentBillInterface } from "../interfaces/IPaymentBill";
+
+
 
 const apiUrl = "http://localhost:8080";
 
@@ -684,6 +687,103 @@ async function CreateList_datas(data: List_dataInterface) {
 
 }
 
+// ================================================================================================================================
+// ================================================================================================================================
+// ================================================= Payment ======================================================================
+// ================================================================================================================================
+// ================================================================================================================================
+
+
+async function GetPayment_Bills() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${apiUrl}/payment_bills`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
+
+async function GetSemester() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${apiUrl}/semesters`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
+
+async function CreatePayment_Bill(data: EmployeeInterface) {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
+
+  let res = await fetch(`${apiUrl}/payment_bills/create`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
+
+async function Payment_Bills(data: PaymentBillInterface) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+
+  let res = await fetch(`${apiUrl}/payment_bills`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
 
 
 export {
@@ -736,5 +836,13 @@ export {
   GetEquipment,
   GetBorrow_card,
   CreateList_datas,
+
+
+  //==================== Payment ========================
+  //=====================================================
+  GetPayment_Bills,
+  GetSemester,
+  CreatePayment_Bill,
+  Payment_Bills,
 
 };

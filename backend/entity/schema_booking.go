@@ -24,5 +24,5 @@ type Booking struct {
 	TimeID        *uint
 	Time          Time `gorm:"references:id"`
 
-	//Payment_Bill []Payment_Bill `gorm:"foreignKey:BookingID"`
+	Payment_Bill []Payment_Bill `gorm:"foreignKey:BookingID"`
 }

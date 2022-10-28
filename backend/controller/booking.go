@@ -5,7 +5,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/pai000/sa-65-project/entity"
-	
 )
 
 func CreateBooking(c *gin.Context) {
@@ -80,6 +79,16 @@ func ListBookings(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{"data": booking})
+}
+
+// GET /bookings/rooms/room_prices/:room_price
+func GetRoomPriceBYBookingID(c *gin.Context) {
+	var room_price entity.Room_price
+	id := c.Param("id")
+	if err := entity.DB().Raw("SELECT room_price FROM bookings INNER JOIN rooms INNER JOIN room_prices WHERE bookings.id = ? AND bookings.room_id = rooms.id AND rooms.room_prices_id = room_prices.id", id).Find(&room_price).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 }
 
 // DELETE /users/:id
