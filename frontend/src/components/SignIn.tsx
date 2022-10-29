@@ -54,6 +54,7 @@ function SignIn() {
   const submit = async () => {
     let res = await Login(signin);
     let resstd = await LoginStudent(signin);
+    
     if (res || resstd) {
       setSuccess(true);
       setTimeout(() => {
@@ -96,7 +97,7 @@ function SignIn() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
+            backgroundImage: "url(https://c0.wallpaperflare.com/preview/271/258/330/room-student-dorm-room.jpg)",
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"
@@ -129,7 +130,7 @@ function SignIn() {
                 required
                 fullWidth
                 id="Email"
-                label="Email Address"
+                label="Username or Email Address"
                 name="email"
                 autoComplete="email"
                 autoFocus

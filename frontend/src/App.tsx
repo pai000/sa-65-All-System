@@ -18,12 +18,15 @@ import ListItemText from "@mui/material/ListItemText";
 import Button from "@mui/material/Button";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import HomeIcon from "@mui/icons-material/Home";
-import PeopleIcon from "@mui/icons-material/People";
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import RoomSharpIcon from '@mui/icons-material/RoomSharp';
 import FolderIcon  from '@mui/icons-material/Folder';
-import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import PersonAddAltTwoToneIcon from '@mui/icons-material/PersonAddAltTwoTone';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import ReceiptLongRoundedIcon from '@mui/icons-material/ReceiptLongRounded';
+import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
+import HandymanSharpIcon from '@mui/icons-material/HandymanSharp';
+import LogoutSharpIcon from '@mui/icons-material/LogoutSharp';
 
 import Home from "./components/Home";
 import Employees from "./components/Employees";
@@ -104,13 +107,14 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 const menu = [
-  { name: "หน้าแรก", icon: <HomeIcon />, path: "/Home" , position: "Admin"},
-  { name: "หน้าแรก", icon: <HomeIcon />, path: "/Home" , position: "Student"},
-  { name: "บันทึกข้อมูลพนักงาน", icon: <PeopleIcon />, path: "/employees" , position: "Admin"},
-  { name: "ลงทะเบียนนักศึกษา", icon: <PeopleIcon />, path: "/students" , position: "Admin"},
+  { name: "หน้าแรก", icon: <HomeRoundedIcon />, path: "/Home" , position: "Admin"},
+  { name: "หน้าแรก", icon: <HomeRoundedIcon />, path: "/Home" , position: "Student"},
+  { name: "หน้าแรก", icon: <HomeRoundedIcon />, path: "/Home" , position: "err"},
+  { name: "บันทึกข้อมูลพนักงาน", icon: <PersonAddAltRoundedIcon />, path: "/employees" , position: "Admin"},
+  { name: "ลงทะเบียนนักศึกษา", icon: <PersonAddAltTwoToneIcon />, path: "/students" , position: "Admin"},
   { name: "บันทึกข้อมูลห้อง", icon: <FolderIcon  />, path: "/Rooms" , position: "Admin"},
-  { name: "จองห้องพัก", icon: <PeopleIcon />, path: "/Booking" , position: "Student"},
-  { name: "แจ้งซ่อม", icon: <ConstructionIcon />, path: "/Repair" ,position: "Student"},
+  { name: "จองห้องพัก", icon: <RoomSharpIcon />, path: "/Booking" , position: "Student"},
+  { name: "แจ้งซ่อม", icon: <HandymanSharpIcon />, path: "/Repair" ,position: "Student"},
   { name: "บันทึกข้อมูลการยืม", icon: <ConstructionIcon />, path: "/List_data/create"   ,position: "Student"},
   { name: "ใบเสร็จชำระค่าใช้จ่าย", icon: <ReceiptLongRoundedIcon />, path: "/payment_bills" , position: "Admin"},
 ];
@@ -174,9 +178,9 @@ function App() {
                 noWrap
                 sx={{ flexGrow: 1 }}
               >
-                System Analysis and Design 1/65
+                ระบบหอพัก
               </Typography>
-              <Button color="inherit" onClick={signout}>
+              <Button  color="inherit" onClick={signout} startIcon={<LogoutSharpIcon />}>
                 ออกจากระบบ
               </Button>
             </Toolbar>
