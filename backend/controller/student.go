@@ -84,7 +84,7 @@ func CreateStudent(c *gin.Context) {
 
 // GET /Student/:id
 func GetStudent(c *gin.Context) {
-	var student entity.Employee
+	var student entity.Student
 	id := c.Param("id")
 	if tx := entity.DB().Where("id = ?", id).First(&student); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "student not found"})

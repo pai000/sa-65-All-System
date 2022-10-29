@@ -25,17 +25,17 @@ func CreateRoom(c *gin.Context) {
 	}
 
 	if tx := entity.DB().Where("id = ?", room.Room_type_id).First(&room_type); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "room type หาไม่เจอเวนนนน"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "room type not found"})
 		return
 
 	}
 	if tx := entity.DB().Where("id = ?", room.Room_price_id).First(&room_price); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "room price หาไม่เจอเวนนนน"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "room price not found"})
 		return
 
 	}
 	if tx := entity.DB().Where("id = ?", room.Set_of_furniture_id).First(&set_of_furniture); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "set of furniture หาไม่เจอเวนนนน"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "set of furniture not found"})
 
 		return
 

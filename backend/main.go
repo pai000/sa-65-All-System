@@ -26,32 +26,32 @@ func main() {
 			// ============================================================================================================
 
 			//gender routes
-			router.GET("/genders", controller.ListGenders)
-			router.GET("/gender/:id", controller.GetGender)
-			router.POST("/genders", controller.CreateGender)
-			router.PATCH("/genders", controller.UpdateGender)
-			router.DELETE("/genders/:id", controller.DeleteGender)
+			r.GET("/genders", controller.ListGenders)
+			r.GET("/gender/:id", controller.GetGender)
+			r.POST("/genders", controller.CreateGender)
+			r.PATCH("/genders", controller.UpdateGender)
+			r.DELETE("/genders/:id", controller.DeleteGender)
 
 			//job_position routes
-			router.GET("/job_positions", controller.ListJob_Position)
-			router.GET("/job_position/:id", controller.GetJob_Position)
-			router.POST("/job_positions", controller.CreateJob_Position)
-			router.PATCH("/job_positions", controller.UpdateJob_Position)
-			router.DELETE("/job_positions/:id", controller.DeleteJob_Position)
+			r.GET("/job_positions", controller.ListJob_Position)
+			r.GET("/job_position/:id", controller.GetJob_Position)
+			r.POST("/job_positions", controller.CreateJob_Position)
+			r.PATCH("/job_positions", controller.UpdateJob_Position)
+			r.DELETE("/job_positions/:id", controller.DeleteJob_Position)
 
 			//province routes
-			router.GET("/provinces", controller.ListProvince)
-			router.GET("/province/:id", controller.GetProvince)
-			router.POST("/provinces", controller.CreateProvince)
-			router.PATCH("/provinces", controller.UpdateProvince)
-			router.DELETE("/provinces/:id", controller.DeleteProvince)
+			r.GET("/provinces", controller.ListProvince)
+			r.GET("/province/:id", controller.GetProvince)
+			r.POST("/provinces", controller.CreateProvince)
+			r.PATCH("/provinces", controller.UpdateProvince)
+			r.DELETE("/provinces/:id", controller.DeleteProvince)
 
 			//role routes
-			router.GET("/employees", controller.ListEmployee)
-			router.GET("/employee/:id", controller.GetEmployee)
-			router.POST("/employees", controller.CreateEmployee)
-			router.PATCH("/employees", controller.UpdateEmployee)
-			router.DELETE("/employees/:id", controller.DeleteEmployee)
+			r.GET("/employees", controller.ListEmployee)
+			r.GET("/employee/:id", controller.GetEmployee)
+			r.POST("/employees", controller.CreateEmployee)
+			r.PATCH("/employees", controller.UpdateEmployee)
+			r.DELETE("/employees/:id", controller.DeleteEmployee)
 
 			// ============================================================================================================
 			// ============================================================================================================
@@ -60,19 +60,19 @@ func main() {
 			// ============================================================================================================
 
 			// Role Routes
-			router.GET("/roles", controller.ListRole)
-			router.GET("/role/:id", controller.GetRole)
-			router.POST("/roles", controller.CreateRole)
+			r.GET("/roles", controller.ListRole)
+			r.GET("/role/:id", controller.GetRole)
+			r.POST("/roles", controller.CreateRole)
 
-			// program Routes
-			router.GET("programs", controller.ListProgram)
-			router.GET("/program/:id", controller.GetProgram)
-			router.POST("/programs", controller.CreateProgram)
+			// program Router
+			r.GET("programs", controller.ListProgram)
+			r.GET("/program/:id", controller.GetProgram)
+			r.POST("/programs", controller.CreateProgram)
 
 			// student Routes
-			router.GET("/students", controller.ListStudent)
-			router.GET("/student/:id", controller.GetStudent)
-			router.POST("/students", controller.CreateStudent)
+			r.GET("/students", controller.ListStudent)
+			r.GET("/student/:id", controller.GetStudent)
+			r.POST("/students", controller.CreateStudent)
 
 			// ============================================================================================================
 			// ============================================================================================================

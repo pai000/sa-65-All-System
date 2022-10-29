@@ -225,7 +225,7 @@ func SetupDatabase() {
 	db.Model(&Role{}).Create(&role1)
 
 	std1 := Student{
-		STUDENT_NUMBER: "B62457815",
+		STUDENT_NUMBER: "B6245781",
 		STUDENT_NAME:   "Supachai srikawe",
 		PERSONAL_ID:    "1786542390457",
 		Password:       string(password4),
@@ -239,7 +239,7 @@ func SetupDatabase() {
 	db.Model(&Student{}).Create(&std1)
 
 	std2 := Student{
-		STUDENT_NUMBER: "B61547843",
+		STUDENT_NUMBER: "B6154784",
 		STUDENT_NAME:   "Yanisa wisagesak",
 		PERSONAL_ID:    "5698231452357",
 		Password:       string(password6),
@@ -251,6 +251,34 @@ func SetupDatabase() {
 		Employee: em1,
 	}
 	db.Model(&Student{}).Create(&std2)
+
+	std3 := Student{
+		STUDENT_NUMBER: "B6411111",
+		STUDENT_NAME:   "Ari Nam",
+		PERSONAL_ID:    "5478215630215",
+		Password:       string(password5),
+
+		Gender:   gender2,
+		Program:  p3,
+		Province: roiet,
+		Role:     role1,
+		Employee: em1,
+	}
+	db.Model(&Student{}).Create(&std3)
+
+	std4 := Student{
+		STUDENT_NUMBER: "B6255555",
+		STUDENT_NAME:   "Suki Sasma",
+		PERSONAL_ID:    "4563258715493",
+		Password:       string(password6),
+
+		Gender:   gender2,
+		Program:  p3,
+		Province: roiet,
+		Role:     role1,
+		Employee: em1,
+	}
+	db.Model(&Student{}).Create(&std4)
 
 	// ======================================================================================================================
 	// ============================================  Room  ==================================================================
@@ -436,6 +464,7 @@ func SetupDatabase() {
 		Check_in_date: time.Date(2020, time.May, 10, 00, 00, 00, 0, time.UTC),
 		Room:          room1,
 		Student:       std1,
+		Time:          T2,
 	}
 	db.Model(&Booking{}).Create(&booking2)
 

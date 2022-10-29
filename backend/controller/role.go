@@ -7,7 +7,7 @@ import (
 	"github.com/pai000/sa-65-project/entity"
 )
 
-// POST /provinces
+// * POST /role
 func CreateRole(c *gin.Context) {
 	var role entity.Role
 	if err := c.ShouldBindJSON(&role); err != nil {
@@ -22,22 +22,54 @@ func CreateRole(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"data": role})
 }
 
-// GET /province/:id
+// * GET /role/:id
 func GetRole(c *gin.Context) {
-	var province entity.Province
+	var role entity.Role
 	id := c.Param("id")
-	if tx := entity.DB().Where("id = ?", id).First(&province); tx.RowsAffected == 0 {
+	if tx := entity.DB().Where("id = ?", id).First(&role); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "role not found"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": province})
+	c.JSON(http.StatusOK, gin.H{"data": role})
 }
 
-// GET /provinces
+// * GET /role
 func ListRole(c *gin.Context) {
 	var role []entity.Role
-	if err := entity.DB().Raw("SELECT * FROM Provinces").Scan(&role).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM roles").Scan(&role).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": role})
+}
+
+// * DELETE /role/:id
+func DeleteRole(c *gin.Context) {
+	id := c.Param("id")
+	if tx := entity.DB().Exec("DELETE FROM roles WHERE id = ?", id); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "role not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"data": id})
+}
+
+// * PATCH /role
+func UpdateRole(c *gin.Context) {
+	var role entity.Role
+	if err := c.ShouldBindJSON(&role); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	if tx := entity.DB().Where("id = ?", role.ID).First(&role); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "role not found"})
+		return
+	}
+
+	if err := entity.DB().Save(&role).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

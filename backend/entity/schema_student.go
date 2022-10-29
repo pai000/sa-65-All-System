@@ -35,7 +35,7 @@ type Student struct {
 	Role   Role `gorm:"references:id"`
 	//EmpolyeeID ทำหน้าที่เป็น FK
 	EmployeeID *uint
-	Employee   Employee  `gorm:"references:id"`
+	Employee   Employee
 	Booking    []Booking `gorm:"foreignKey:STUDENT_ID"`
 	Repair     []Repair  `gorm:"foreignKey:STUDENT_ID"`
 }
