@@ -21,6 +21,24 @@ Pass: 123
 
 
 
+#Student
+
+Username: B6245781
+
+Pass: adas8485
+
+
+Username: B6154784
+
+Pass: 000
+
+
+Username: B6255555
+
+Pass: 000
+
+
+
 #Housekeeper
 
 Email: jacklove@gmail.com
@@ -45,18 +63,3 @@ Pass: 000
 
 
 
-#Student
-
-Username: B6245781
-
-Pass: adas8485
-
-
-Username: B6154784
-
-Pass: 000
-
-
-Username: B6255555
-
-Pass: 000
