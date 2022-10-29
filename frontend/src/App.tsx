@@ -27,6 +27,7 @@ import ReceiptLongRoundedIcon from '@mui/icons-material/ReceiptLongRounded';
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
 import HandymanSharpIcon from '@mui/icons-material/HandymanSharp';
 import LogoutSharpIcon from '@mui/icons-material/LogoutSharp';
+import RestoreRoundedIcon from '@mui/icons-material/RestoreRounded';
 
 import Home from "./components/Home";
 import Employees from "./components/Employees";
@@ -116,7 +117,7 @@ const menu = [
   { name: "จองห้องพัก", icon: <RoomSharpIcon />, path: "/Booking" , position: "Student"},
   { name: "แจ้งซ่อม", icon: <HandymanSharpIcon />, path: "/Repair" ,position: "Student"},
   { name: "บันทึกข้อมูลการยืม", icon: <ConstructionIcon />, path: "/List_data/create"   ,position: "Student"},
-  { name: "ใบเสร็จชำระค่าใช้จ่าย", icon: <ReceiptLongRoundedIcon />, path: "/payment_bills" , position: "Admin"},
+  { name: "ใบเสร็จชำระค่าใช้จ่าย", icon: <RestoreRoundedIcon />, path: "/payment_bills" , position: "Admin"},
 ];
 
 function App() {
