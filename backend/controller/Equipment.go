@@ -41,7 +41,7 @@ func GetEquipment(c *gin.Context) {
 
 	id := c.Param("id")
 
-	if err := entity.DB().Raw("SELECT * FROM Equipments WHERE id = ?", id).Scan(&equipments).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM Equipment WHERE id = ?", id).Scan(&equipments).Error; err != nil {
 
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 
@@ -59,7 +59,7 @@ func ListEquipments(c *gin.Context) {
 
 	var equipments []entity.Equipment
 
-	if err := entity.DB().Raw("SELECT * FROM Equipments").Scan(&equipments).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM Equipment").Scan(&equipments).Error; err != nil {
 
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 

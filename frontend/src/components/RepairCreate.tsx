@@ -21,6 +21,7 @@ import { RepairInterface } from "../interfaces/IRepair";
 import {
   GetRoom,
   GetFurniture,
+  GetStudentByUID,
   RepairRooms,
   GetStudent,
 } from "../services/HttpClientService";
@@ -35,7 +36,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 function RepairCreate() {
   const [Rooms, setRooms] = useState<RoomInterface[]>([]);
   const [Furnitures, setFurnitures] = useState<FurnitureInterface []>([]);
-  const [Students, setStudents] = useState<StudentInterface[]>([]);
+  const [Students, setStudents] = useState<StudentInterface>();
   const [RepairRoom, setRepair] = useState<Partial<RepairInterface>>({});
 
   const [success, setSuccess] = useState(false);
@@ -88,11 +89,18 @@ function RepairCreate() {
       setStudents(res);
     }
   };
+  const getStudentByUID = async () => {
+    let res = await GetStudentByUID();
+    console.log(res)
+    if (res) {
+      setStudents(res);
+    }
+  };
 
   useEffect(() => {
     getRooms();
     getFurnitures();
-    getStudent();
+    getStudentByUID();
 
   }, []);
 
@@ -219,11 +227,11 @@ function RepairCreate() {
                 <option aria-label="None" value="">
                   กรุณาเลือกรหัสนักศึกษา
                 </option>
-                {Students.map((item: StudentInterface) => (
-                  <option value={item.ID} key={item.ID}>
-                    {item.STUDENT_NUMBER}
-                  </option>
-                ))}
+                
+                  <option value={Students?.ID} key={Students?.ID}>
+                  {Students?.STUDENT_NUMBER}
+                </option>
+                )
               </Select>
             </FormControl>
           </Grid>
